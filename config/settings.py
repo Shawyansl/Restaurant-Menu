@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'menu',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +81,15 @@ DATABASES = {
     "default": env.db("DATABASE_URL")
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Cafe Menu API',
+    'DESCRIPTION': 'API for cafe menu, categories, items and settings',
+    'VERSION': '1.0.0',
+}
 
 
 # Password validation

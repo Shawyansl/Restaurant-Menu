@@ -44,10 +44,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'menu',
     'drf_spectacular',
+    'corsheaders',
+
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -90,6 +93,8 @@ SPECTACULAR_SETTINGS = {
     'DESCRIPTION': 'API for cafe menu, categories, items and settings',
     'VERSION': '1.0.0',
 }
+
+CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS", default=["http://localhost:5173"])
 
 
 # Password validation
